@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The PokédeX</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <input id="search" class="search" onkeyup=searchPokemon(this.value);>
+    <div class="loadingContainer">
+      <h1>Chargement...</h1>
+      <div class="loadingBar">
+        <div id="loading" class="currentLoading"></div>
+      </div>
+    </div>
+    <div id="result" class="cardContainer"></div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="api.js"></script>
+</html>

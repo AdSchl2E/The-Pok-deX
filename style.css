@@ -1,0 +1,330 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Poppins,sans-serif;
+}
+
+body{
+    background-color: #111;
+    color: #fff;
+}
+
+.search{
+    position: fixed;
+    z-index: 999;
+}
+
+.noResult{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingContainer{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.loadingContainer h1{
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+.loadingContainer .loadingBar{
+    width: 500px;
+    height: 50px;
+    background-color: #444;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.loadingContainer .loadingBar .currentLoading{
+    height: 50px;
+    background-color: rgb(80, 177, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.cardContainer{
+    display: flex; 
+    width: 100%; 
+    height: 100vh;
+    justify-content: center; 
+    padding: 50px; 
+    flex-wrap: wrap;
+}
+.card{
+    position: relative;
+    height: 450px;
+    width: 300px;
+    background-color: #222;
+    margin: 20px;
+    transition: .1s;
+}
+.card .header{
+    width: 100%;
+    height: 50px;
+    background-color: #555;
+    display: flex;
+}
+.card .header .id{
+    width: 50px;
+    height: 50px;
+    background-color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card .header .name{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.card .header .basic{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #666;
+}
+.card .header .leg{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 196, 0);
+}
+.card .header .myth{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(122, 0, 126);
+}
+.card .main{
+    width: 100%;
+    height: 370px;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+}
+.card .main .img{
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    -ms-transition: .1s;
+    -o-transition: .1s;
+}
+.card .main .img img{
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 150px;
+    min-height: 150px;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    -ms-transition: .1s;
+    -o-transition: .1s;
+}
+.card .main .types{
+    z-index: 2;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    -ms-transition: .1s;
+    -o-transition: .1s;
+}
+.card .main .oneType p{
+    width: 100% !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card .main .types p{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card .footer{
+    width: 100%;
+    height: 30px;
+}
+.card .footer .hidedStat{
+    height: 30px;
+    background-color: #444;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.card .footer .hidedStat:hover{
+    background-color: #666;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    cursor: pointer;
+}
+.card .footer .hidedStat p{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .footer .displayedStat{
+    z-index: 1;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background-color: #222;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1px 0;
+}
+.card .footer .displayedStat .statRow{
+    font-size: 0.9em;
+    width: 100%;
+    height: 23px;
+    display: flex;
+    margin: 2px;
+}
+.card .footer .displayedStat .statRow p{
+    width: 65px;
+    height: 100%;
+    padding-left: 4px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.card .footer .displayedStat .statRow .statBarContainer{
+    position: relative;
+    width: 230px;
+    height: 100%;
+}
+.card .footer .displayedStat .statRow .statBarContainer .statBar{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.dragon{
+    background-color: #4a1bc0;
+}
+.ghost{
+    background-color: #523f6d;
+}
+.flying{
+    background-color: #a78eee;
+}
+.normal{
+    background-color: #a6a677;
+}
+.water{
+    background-color: #688ef0;
+}
+.psychic{
+    background-color: #f75887;
+}
+.ground{
+    background-color: #e2be66;
+}
+.dark{
+    background-color: #6d5841;
+}
+.poison{
+    background-color: #9b439e;
+}
+.fighting{
+    background-color: #bd302c;
+}
+.bug{
+    background-color: #a9b820;
+}
+.grass{
+    background-color: #73cc4e;
+}
+.steel{
+    background-color: #b7b8d0;
+}
+.fire{
+    background-color: #ef7f2c;
+}
+.fairy{
+    background-color: #e5a1e0;
+}
+.ice{
+    background-color: #96d8d3;
+}
+.rock{
+    background-color: #b89f38;
+}
+.electric{
+    background-color: #fbcf28;
+}
+.undefined{
+    display: none !important;
+}
+
+.HP{
+    background-color: #05c55f;
+}
+.Attack{
+    background-color: #c94e53;
+}
+.Defense{
+    background-color: #d59f27;
+}
+.SpeAtk{
+    background-color: #bf44f2;
+}
+.SpeDef{
+    background-color: #e7673d;
+}
+.Speed{
+    background-color: #58abd9;
+}
+.Total{
+    background-color: rgb(190, 28, 196);
+}
