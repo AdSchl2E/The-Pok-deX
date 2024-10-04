@@ -315,52 +315,45 @@ const resumeInfo = async (PokemonTradResult,PokemonInfoResult,pokemonIndex,liste
     return [pokemonId, pokemonName, tradPokemonName, isPokemonLegendary, isPokemonMythical, pokemonType, pokemonStats, pokemonImg];
 }
 const getPokemonInfo = async (pokemonTradUrl, pokemonInfoUrl, pokemonIndex, listePokemons) => {
-    loading++;
+    loading++
     refreshLoading();
     console.log(loading);
 
-    let PokemonTradResult;
-    let PokemonInfoResult;
 
-    // Fetch Pokémon translations with error handling
-    try {
-        PokemonTradResult = await fetch(pokemonTradUrl).then(response => {
-            if (response.ok) {
+    const PokemonTradResult = await fetch(pokemonTradUrl).then(
+        response => {
+            if (response.ok){
                 return response.json();
             }
             throw new Error('Request failed!');
-        });
-    } catch (error) {
-        console.warn(`Erreur lors de la récupération des traductions pour le Pokémon ${pokemonIndex}:`, error);
-        PokemonTradResult = null; // Valeur par défaut si la requête échoue
-    }
-
-    // Fetch Pokémon info with error handling
-    try {
-        PokemonInfoResult = await fetch(pokemonInfoUrl).then(response => {
-            if (response.ok) {
+        }
+    ).then(
+        jsonResponse => {
+            return jsonResponse;
+        }
+    );
+    const PokemonInfoResult = await fetch(pokemonInfoUrl).then(
+        response => {
+            if (response.ok){
                 return response.json();
             }
             throw new Error('Request failed!');
-        });
-    } catch (error) {
-        console.warn(`Erreur lors de la récupération des informations pour le Pokémon ${pokemonIndex}:`, error);
-        PokemonInfoResult = null; // Valeur par défaut si la requête échoue
-    }
+        }
+    ).then(
+        jsonResponse => {
+            return jsonResponse;
+        }
+    );
 
-    if (PokemonTradResult && PokemonInfoResult) {
-        const PokemonInfo = resumeInfo(PokemonTradResult, PokemonInfoResult, pokemonIndex, listePokemons);
-        loading++;
-        refreshLoading();
-        console.log(loading);
-        return PokemonInfo;
-    } else {
-        console.warn(`Impossible de générer les informations pour le Pokémon ${pokemonIndex} en raison d'erreurs.`);
-        loading++;
-        refreshLoading();
-        return null; // Valeur par défaut si une partie des données manque
-    }
-};
+    const PokemonInfo = resumeInfo(PokemonTradResult,PokemonInfoResult,pokemonIndex,listePokemons);
+    loading++
+    refreshLoading();
+    console.log(loading);
+
+    return PokemonInfo;
+    
+}
+
 const fillPokemonsList = async(listePokemons) => {
     const Pokemons = [];
     const searchOffset = offset;
