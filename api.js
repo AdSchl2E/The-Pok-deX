@@ -6,7 +6,7 @@ let loading = 0;
 let offset = 0;
 const getAllPokemons = async () => {
     const listePokemons = [];
-    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=1000`;
+    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=10000`;
     const AllPokemons = await fetch(url).then(
         response => {
             if (response.ok){
