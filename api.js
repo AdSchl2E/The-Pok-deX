@@ -366,7 +366,7 @@ const fillPokemonsList = async(listePokemons) => {
         let pokemonTradUrl = `https://pokeapi.co/api/v2/pokemon-species/${i}`;
         let pokemonInfoUrl = listePokemons[i-searchOffset][1];
         if (i > 898){
-            pokemonTradUrl = `https://pokeapi.co/api/v2/pokemon-species/${listePokemons[i-searchOffset][0].split('-')[0]}`;
+            pokemonTradUrl = `https://pokeapi.co/api/v2/pokemon-species/${listePokemons[i-searchOffset][0]}`;
             if (listePokemons[i-searchOffset][0] === "kommo-o-totem" || listePokemons[i-searchOffset][0] === "mr-mime-galar"){
                 pokemonTradUrl = `https://pokeapi.co/api/v2/pokemon-species/${listePokemons[i-searchOffset][0].split('-')[0] + '-' + listePokemons[i-searchOffset][0].split('-')[1]}`;
             }
