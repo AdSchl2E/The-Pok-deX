@@ -503,9 +503,9 @@ const displayPokemons = (Pokemon) => {
     }
 }
 const refreshLoading = () => {
-    loadingAera.setAttribute("style",`width: ${loading*100/4473}%;`);
-    $(loadingAera).html(Math.trunc(loading*100/4473)+1 + "%");
-    if (Math.trunc(loading*100/4473) >= 100){
+    loadingAera.setAttribute("style",`width: ${loading*100/5209}%;`);
+    $(loadingAera).html(Math.trunc(loading*100/5209)+1 + "%");
+    if (Math.trunc(loading*100/5209) >= 100){
         $(loadingAera).html(100);
         loadingAera.parentNode.parentNode.setAttribute("style",`display: none;`);
     }
